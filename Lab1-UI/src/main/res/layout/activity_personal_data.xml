@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PersonalDataActivity">
+
+    <TextView
+        android:id="@+id/lbl_personal_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adamina"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        tools:text="@string/personal_information" />
+
+    <EditText
+        android:id="@+id/lbl_name"
+        android:layout_width="108dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="67dp"
+        android:fontFamily="@font/adamina"
+        android:importantForAutofill="no"
+        android:inputType="textCapWords"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/name" />
+
+    <EditText
+        android:id="@+id/lbl_lastname"
+        android:layout_width="92dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/adamina"
+        android:importantForAutofill="no"
+        android:inputType="textCapWords"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lbl_name"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_name"
+        tools:text="@string/lastname" />
+
+    <TextView
+        android:id="@+id/lbl_genre"
+        android:layout_width="107dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/adamina"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_lastname"
+        tools:text="@string/genre" />
+
+    <RadioButton
+        android:id="@+id/rd_male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="184dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/lbl_genre"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_personal_information"
+        tools:text="@string/male" />
+
+    <RadioButton
+        android:id="@+id/rd_female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="216dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toEndOf="@+id/rd_male"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/female" />
+
+    <TextView
+        android:id="@+id/lbl_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="388dp"
+        android:fontFamily="@font/adamina"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/birthday" />
+
+    <DatePicker
+        android:id="@+id/editTextDate"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_birthday" />
+
+    <TextView
+        android:id="@+id/lbl_education_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="137dp"
+        android:fontFamily="@font/adamina"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_birthday"
+        app:layout_constraintVertical_bias="0.086"
+        tools:text="@string/education_level" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="259dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_education_level" />
+</androidx.constraintlayout.widget.ConstraintLayout>
