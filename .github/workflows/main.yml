@@ -25,7 +25,7 @@ jobs:
        uses: actions/upload-artifact@v3.1.2
        with:
          name: apk
-         path: app/build/outputs/apk/debug/app-debug.apk
+         path: Lab1-UI/build/outputs/apk/debug/Lab1-UI-debug.apk
 
  release:
    name: Release APK
