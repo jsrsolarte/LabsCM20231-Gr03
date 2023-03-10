@@ -17,5 +17,6 @@
     <string name="education_level">Grado de escolaridad</string>
     <string name="male">Hombre</string>
     <string name="female">Mujer</string>
+    <string name="next">Siguiente</string>
 
 </resources>
