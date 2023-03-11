@@ -102,10 +102,9 @@
         android:layout_marginEnd="0dp"
         android:layout_marginLeft="0dp"
         app:layout_constraintEnd_toStartOf="@+id/rd_female"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/text_lbl_genre"
         app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname"
-        tools:text="@string/male" />
+        android:hint="@string/male" />
 
     <RadioButton
         android:id="@+id/rd_female"
@@ -119,7 +118,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rd_male"
         app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname"
-        tools:text="@string/female" />
+        android:hint="@string/female" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_lbl_birthday"
@@ -186,7 +185,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.936"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="@string/btn_next" />
+        android:hint="@string/btn_next" />
 
 
 
