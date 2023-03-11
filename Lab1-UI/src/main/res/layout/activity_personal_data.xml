@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_personal_data_scene"
     tools:context=".PersonalDataActivity">
 
     <TextView
         android:id="@+id/lbl_personal_information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="0dp"
         android:layout_marginBottom="165dp"
         android:fontFamily="@font/adamina"
         app:layout_constraintBottom_toTopOf="@+id/rd_male"
@@ -23,8 +28,9 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginRight="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -48,6 +54,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginRight="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_lbl_name">
@@ -63,103 +70,128 @@
             android:inputType="textCapWords" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
-
-
-    <TextView
-        android:id="@+id/lbl_genre"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_lbl_genre"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_action_genre"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="153dp"
-        android:fontFamily="@font/adamina"
+        android:layout_marginStart="-20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginRight="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rd_female"
-        app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname"
-        tools:text="@string/genre" />
+        app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname">
+
+        <TextView
+            android:id="@+id/lbl_genre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_genre"
+            android:fontFamily="@font/adamina"
+            android:hint="@string/genre" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <RadioButton
         android:id="@+id/rd_male"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="0dp"
         app:layout_constraintEnd_toStartOf="@+id/rd_female"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/lbl_genre"
-        tools:layout_editor_absoluteY="200dp"
+        app:layout_constraintStart_toEndOf="@+id/text_lbl_genre"
+        app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname"
         tools:text="@string/male" />
 
     <RadioButton
         android:id="@+id/rd_female"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lbl_genre"
+        app:layout_constraintStart_toEndOf="@+id/rd_male"
         app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname"
         tools:text="@string/female" />
 
-    <TextView
-        android:id="@+id/lbl_birthday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="52dp"
-        android:drawableLeft="@drawable/ic_action_birthday"
-        android:fontFamily="@font/adamina"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_lbl_birthday"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_genre"
-        tools:text="@string/birthday" />
+        app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname">
+
+        <TextView
+            android:id="@+id/lbl_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_birthday"
+            android:fontFamily="@font/adamina"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/birthday" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <DatePicker
         android:id="@+id/editTextDate"
-        android:layout_width="92dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="21dp"
+        android:layout_width="108dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/lbl_education_level"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintHorizontal_bias="0.848"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_birthday" />
+        app:layout_constraintTop_toBottomOf="@+id/text_lbl_birthday" />
 
-    <TextView
-        android:id="@+id/lbl_education_level"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="124dp"
-        android:drawableLeft="@drawable/ic_action_education"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="152dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_birthday" />
+        app:layout_constraintTop_toBottomOf="@+id/text_lbl_birthday"
+        app:srcCompat="@drawable/ic_action_education" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="181dp"
-        android:layout_height="35dp"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="104dp"
+        android:contentDescription="@string/education_level"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
-        app:layout_constraintStart_toEndOf="@+id/lbl_education_level"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.18" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintHorizontal_bias="0.936"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="@string/next" />
+        tools:text="@string/btn_next" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
