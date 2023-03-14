@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/activity_personal_data_scene"
     tools:context=".PersonalDataActivity">
 
     <TextView
@@ -120,47 +119,31 @@
         app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname"
         android:hint="@string/female" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_lbl_birthday"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="120dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname">
 
-        <TextView
-            android:id="@+id/lbl_birthday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_action_birthday"
-            android:fontFamily="@font/adamina"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/birthday" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <DatePicker
-        android:id="@+id/editTextDate"
-        android:layout_width="108dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="12dp"
+    <EditText
+        android:id="@+id/labelbirthday"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:clickable="false"
+        android:drawableLeft="@drawable/ic_action_birthday"
         android:ems="10"
-        android:inputType="date"
+        android:focusable="false"
+        android:fontFamily="@font/adamina"
+        android:hint="@string/birthday"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.848"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_lbl_birthday" />
+        app:layout_constraintTop_toBottomOf="@+id/text_lbl_genre" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_lbl_birthday"
+        app:layout_constraintTop_toBottomOf="@+id/labelbirthday"
         app:srcCompat="@drawable/ic_action_education" />
 
     <Spinner
@@ -169,12 +152,12 @@
         android:layout_height="48dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="104dp"
+        android:layout_marginBottom="304dp"
         android:contentDescription="@string/education_level"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView" />
 
     <Button
         android:id="@+id/button_next"
@@ -193,4 +176,4 @@
 
 
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
