@@ -91,13 +91,36 @@
         app:layout_constraintTop_toBottomOf="@+id/text_Input_Layout_mail">
 
         <AutoCompleteTextView
-            android:id="@+id/lbl_country"
+            android:id="@+id/autocomplete_country"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:drawableLeft="@drawable/ic_lbl_country"
             android:inputType="text"
             android:imeOptions="actionNext"
-            android:hint="@string/country" />
+            android:hint="@string/country"
+            android:enabled="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_state"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_country">
+
+        <AutoCompleteTextView
+            android:id="@+id/autocomplete_state"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:drawableLeft="@drawable/ic_lbl_country"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:hint="@string/state"
+            android:enabled="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -109,16 +132,17 @@
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_country">
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_state">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lbl_city"
+        <AutoCompleteTextView
+            android:id="@+id/autocomplete_city"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_lbl_city"
+            android:layout_height="60dp"
+            android:drawableLeft="@drawable/ic_lbl_country"
+            android:inputType="text"
+            android:imeOptions="actionNext"
             android:hint="@string/city"
-            android:imeOptions="actionDone"
-            android:inputType="text" />
+            android:enabled="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
