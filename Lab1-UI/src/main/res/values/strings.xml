@@ -6,4 +6,5 @@
     <string name="country">País</string>
     <string name="city">Ciudad</string>
     <string name="Next">Siguiente</string>
+    <string name="state">Estado/Departamento</string>
 </resources>
