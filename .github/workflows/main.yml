@@ -10,9 +10,9 @@ jobs:
    name: Generate APK
    runs-on: ubuntu-latest
    env:
-     API_KEY: ${{ secret.API_KEY }}
-     BASE_URL: ${{ secret.BASE_URL }}
-     EMAIL_API_KEY: ${{ secret.EMAIL_API_KEY }}
+     API_KEY: ${{ secrets.API_KEY }}
+     BASE_URL: ${{ secrets.BASE_URL }}
+     EMAIL_API_KEY: ${{ secrets.EMAIL_API_KEY }}
    steps:
      - name: Checkout
        uses: actions/checkout@v2.4.0
