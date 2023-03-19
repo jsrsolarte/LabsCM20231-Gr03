@@ -16,9 +16,9 @@ class LocationService() {
             directory = "/assets"
             filename = "env"
         }
-        apiKey = env["API_KEY"] ?: System.getenv("API_KEY")
-        val baseUrl = env["BASE_URL"] ?: System.getenv("BASE_URL")
-        userEmail = env["EMAIL_API_KEY"] ?: System.getenv("EMAIL_API_KEY")
+        apiKey = "n3UwWpn6cPaUTD165coVbPwIexgKP8Cav6g0W7JkyI74sigvhUxQbFoN8ulacfdwrS0"
+        val baseUrl = "https://www.universal-tutorial.com/api/"
+        userEmail = "juanse.ramirez91@gmail.com"
         var retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
