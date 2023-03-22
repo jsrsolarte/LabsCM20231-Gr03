@@ -15,6 +15,6 @@ jobs:
       uses: ShaunLWM/action-release-debugapk@0.0.7
       with:
         # Github secret token to allow automated publishing of APK to release.
-        GITHUB_TOKEN: ${{ secret.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
         # Github repository branch name.
         REPO_BRANCH: master
