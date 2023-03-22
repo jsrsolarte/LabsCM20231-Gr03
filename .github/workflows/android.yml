@@ -24,6 +24,11 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Upload APK
+      uses: actions/upload-artifact@v3.1.2
+      with:
+       name: apk
+       path: Lab1-UI/build/outputs/apk/debug/Lab1-UI-debug.apk
 
   release:
    name: Release APK
