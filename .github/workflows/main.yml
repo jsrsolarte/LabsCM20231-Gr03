@@ -9,18 +9,12 @@ jobs:
   Gradle:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout code
-      uses: actions/checkout@v2
-    - name: setup jdk
-      uses: actions/setup-java@v1
+    - name: Build & Publish Debug APK
+      # You may pin to the exact commit or the version.
+      # uses: ShaunLWM/action-release-debugapk@d804d8fbf2982783eeffb6fa9e12bf37beb519bd
+      uses: ShaunLWM/action-release-debugapk@0.0.7
       with:
-        java-version: 11
-    - name: Make Gradle executable
-      run: chmod +x ./gradlew
-    - name: Build Release APK
-      run: ./gradlew assembleRelease
-    - name: Releasing using Hub
-      uses: r0user/release-apk@main
-      env:
-       GITHUB_TOKEN: ${{ secrets.TOKEN }}
-       APP_FOLDER: Lab1-UI
+        # Github secret token to allow automated publishing of APK to release.
+        GITHUB_TOKEN: ${{ secret.TOKEN }}
+        # Github repository branch name.
+        REPO_BRANCH: master
