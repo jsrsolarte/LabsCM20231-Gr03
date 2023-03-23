@@ -6,26 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".view.ContactDataActivity">
 
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="225dp">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_next_2"
+            <TextView
+                android:id="@+id/lbl_contact_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="60dp"
-                android:text="@string/Next"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="casual"
+                android:hint="@string/contact_information"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_input_layout_city" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/text_Input_layout_phone"
@@ -36,13 +41,15 @@
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/lbl_contact_information">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/lbl_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_lbl_phone"
+                    android:drawablePadding="@dimen/fab_margin"
+                    android:fontFamily="casual"
                     android:hint="@string/phone"
                     android:imeOptions="actionNext"
                     android:inputType="phone" />
@@ -64,6 +71,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_lbl_address"
+                    android:drawablePadding="@dimen/fab_margin"
+                    android:fontFamily="casual"
                     android:hint="@string/address"
                     android:imeOptions="actionNext"
                     android:inputType="textPostalAddress" />
@@ -85,6 +94,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_lbl_mail"
+                    android:drawablePadding="@dimen/fab_margin"
+                    android:fontFamily="casual"
                     android:hint="@string/email"
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress" />
@@ -106,7 +117,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:drawableStart="@drawable/ic_lbl_country"
+                    android:drawablePadding="@dimen/fab_margin"
                     android:enabled="false"
+                    android:fontFamily="casual"
                     android:hint="@string/country"
                     android:imeOptions="actionNext"
                     android:inputType="text" />
@@ -128,7 +141,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:drawableStart="@drawable/ic_lbl_country"
+                    android:drawablePadding="@dimen/fab_margin"
                     android:enabled="false"
+                    android:fontFamily="casual"
                     android:hint="@string/state"
                     android:imeOptions="actionNext"
                     android:inputType="text" />
@@ -150,11 +165,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:drawableStart="@drawable/ic_lbl_country"
+                    android:drawablePadding="@dimen/fab_margin"
                     android:enabled="false"
+                    android:fontFamily="casual"
                     android:hint="@string/city"
                     android:imeOptions="actionNext"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_next_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="60dp"
+                android:fontFamily="casual"
+                android:text="@string/Next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_input_layout_city" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
