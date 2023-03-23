@@ -4,11 +4,15 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.security.identity.PersonalizationData
 import android.view.View
 import android.widget.*
 import android.widget.DatePicker
 import androidx.core.content.ContextCompat
+import co.edu.udea.compumovil.activities.Models.TestModel
 import co.edu.udea.compumovil.gr03_20231.lab1.R
+import co.edu.udea.compumovil.gr03_20231.lab1.databinding.ActivityPersonalDataBinding
+import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -17,11 +21,14 @@ class PersonalDataActivity : AppCompatActivity() {
     private val myCalendar = Calendar.getInstance()
     private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     private lateinit var editTextDate: EditText
+    private lateinit var bindingPersonal: ActivityPersonalDataBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_personal_data)
+        bindingPersonal = ActivityPersonalDataBinding.inflate(layoutInflater)
+        setContentView(bindingPersonal.root)
+        //setContentView(R.layout.activity_personal_data)
         editTextDate = findViewById(R.id.labelbirthday)
 
         setSpinnerEducational()
@@ -32,10 +39,25 @@ class PersonalDataActivity : AppCompatActivity() {
 
     }
 
+
     private fun setNextButton() {
         val nextButton = findViewById<Button>(R.id.button_next)
         nextButton.setOnClickListener {
+
             val intent = Intent(this, ContactDataActivity::class.java)
+
+            var name: String = bindingPersonal.lblName.text.toString()
+            var lastName: String = bindingPersonal.lblLastname.text.toString()
+            var sex: String = if (bindingPersonal.rdFemale.isChecked){
+                "Femenino"
+            } else{
+                "Masculino"
+            }
+            var birthday: String = bindingPersonal.labelbirthday.text.toString()
+            var educationLvl: String = bindingPersonal.spinner.selectedItem.toString()
+            var gson = Gson()
+            var jsonString = gson.toJson(TestModel(name,lastName, sex, birthday, educationLvl, "", "", "", "", "", ""))
+            intent.putExtra("mykey", jsonString)
             startActivity(intent)
         }
     }

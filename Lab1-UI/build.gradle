@@ -7,6 +7,11 @@ android {
     namespace 'co.edu.udea.compumovil.gr03_20231.lab1'
     compileSdk 32
 
+    viewBinding{
+        enabled = true
+    }
+
+
     defaultConfig {
         applicationId "co.edu.udea.compumovil.gr03_20231.lab1"
         minSdk 21

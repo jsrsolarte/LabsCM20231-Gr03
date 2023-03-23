@@ -33,12 +33,15 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:id="@+id/text_Input_layout_phone"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="20dp"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@android:color/holo_red_dark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lbl_contact_information">
@@ -50,12 +53,14 @@
                     android:drawableStart="@drawable/ic_lbl_phone"
                     android:drawablePadding="@dimen/fab_margin"
                     android:fontFamily="casual"
+                    android:lines="1"
                     android:hint="@string/phone"
                     android:imeOptions="actionNext"
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:id="@+id/text_Input_Layout_address"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -73,18 +78,22 @@
                     android:drawableStart="@drawable/ic_lbl_address"
                     android:drawablePadding="@dimen/fab_margin"
                     android:fontFamily="casual"
+                    android:lines="1"
                     android:hint="@string/address"
                     android:imeOptions="actionNext"
                     android:inputType="textPostalAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:id="@+id/text_Input_Layout_mail"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@android:color/holo_red_dark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_Input_Layout_address">
@@ -96,18 +105,22 @@
                     android:drawableStart="@drawable/ic_lbl_mail"
                     android:drawablePadding="@dimen/fab_margin"
                     android:fontFamily="casual"
+                    android:lines="1"
                     android:hint="@string/email"
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:id="@+id/text_input_layout_country"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@android:color/holo_red_dark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_Input_Layout_mail">
@@ -120,12 +133,14 @@
                     android:drawablePadding="@dimen/fab_margin"
                     android:enabled="false"
                     android:fontFamily="casual"
+                    android:lines="1"
                     android:hint="@string/country"
                     android:imeOptions="actionNext"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:id="@+id/text_input_layout_state"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -144,12 +159,14 @@
                     android:drawablePadding="@dimen/fab_margin"
                     android:enabled="false"
                     android:fontFamily="casual"
+                    android:lines="1"
                     android:hint="@string/state"
                     android:imeOptions="actionNext"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:id="@+id/text_input_layout_city"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -168,6 +185,7 @@
                     android:drawablePadding="@dimen/fab_margin"
                     android:enabled="false"
                     android:fontFamily="casual"
+                    android:lines="1"
                     android:hint="@string/city"
                     android:imeOptions="actionNext"
                     android:inputType="text" />

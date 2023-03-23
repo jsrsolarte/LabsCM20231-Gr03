@@ -28,6 +28,7 @@
     <string name="state">Estado/Departamento</string>
     <string name="btn_change">Cambiar</string>
     <string name="contact_information">Información de Contacto</string>
+    <string name="required">Campo Obligatorio</string>
     <string-array name="educational_options_array">
         <item>Grado escolaridad</item>
         <item>Primaria</item>
