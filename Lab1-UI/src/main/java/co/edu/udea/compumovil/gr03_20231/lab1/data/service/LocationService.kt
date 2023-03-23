@@ -3,7 +3,6 @@ package co.edu.udea.compumovil.gr03_20231.lab1.data.service
 import co.edu.udea.compumovil.gr03_20231.lab1.data.remote.LocationApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import io.github.cdimascio.dotenv.dotenv
 
 class LocationService() {
 
@@ -12,10 +11,6 @@ class LocationService() {
     private val locationApi: LocationApi
 
     init {
-        val env = dotenv {
-            directory = "/assets"
-            filename = "env"
-        }
         apiKey = "n3UwWpn6cPaUTD165coVbPwIexgKP8Cav6g0W7JkyI74sigvhUxQbFoN8ulacfdwrS0"
         val baseUrl = "https://www.universal-tutorial.com/api/"
         userEmail = "juanse.ramirez91@gmail.com"
