@@ -11,12 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="0dp"
         android:layout_marginBottom="165dp"
-        android:fontFamily="@font/adamina"
-        app:layout_constraintBottom_toTopOf="@+id/rd_male"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -32,14 +29,13 @@
         android:layout_marginRight="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/lbl_personal_information">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/lbl_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_action_name"
-            android:fontFamily="@font/adamina"
             android:hint="@string/name"
             android:imeOptions="actionNext"
             android:inputType="textCapWords" />
@@ -63,7 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_action_lastname1"
-            android:fontFamily="@font/adamina"
             android:hint="@string/lastname"
             android:imeOptions="actionNext"
             android:inputType="textCapWords" />
@@ -86,7 +81,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_action_genre"
-            android:fontFamily="@font/adamina"
             android:hint="@string/genre" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -96,45 +90,44 @@
         android:id="@+id/rd_male"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginEnd="0dp"
         android:layout_marginLeft="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:hint="@string/male"
         app:layout_constraintEnd_toStartOf="@+id/rd_female"
         app:layout_constraintStart_toEndOf="@+id/text_lbl_genre"
-        app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname"
-        android:hint="@string/male" />
+        app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname" />
 
     <RadioButton
         android:id="@+id/rd_female"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="36dp"
-        android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
+        android:hint="@string/female"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rd_male"
-        app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname"
-        android:hint="@string/female" />
+        app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname" />
 
 
     <EditText
         android:id="@+id/labelbirthday"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_width="133dp"
+        android:layout_height="41dp"
         android:clickable="false"
-        android:drawableLeft="@drawable/ic_action_birthday"
+        android:drawableStart="@drawable/ic_action_birthday"
         android:ems="10"
         android:focusable="false"
-        android:fontFamily="@font/adamina"
         android:hint="@string/birthday"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_lbl_genre" />
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -164,16 +157,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:hint="@string/btn_next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.936"
-        app:layout_constraintStart_toStartOf="parent"
-        android:hint="@string/btn_next" />
-
-
-
-
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

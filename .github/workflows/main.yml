@@ -1,35 +1,38 @@
-name: Build and Release
+name: Android CI
 
 on:
- push:
-   branches:
-     - master
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+    
 
 jobs:
- apk:
-   name: Generate APK
-   runs-on: ubuntu-latest
-   steps:
-     - name: Checkout
-       uses: actions/checkout@v2.4.0
-     - name: Setup JDK
-       uses: actions/setup-java@v2.5.0
-       with:
-         distribution: temurin
-         java-version: "11"
-     - name: Set execution flag for gradlew
-       run: chmod +x gradlew
-     - name: Build APK
-       run: bash ./gradlew assembleDebug --stacktrace
-     - name: Upload APK
-       uses: actions/upload-artifact@v3.1.2
-       with:
-         name: apk
-         path: Lab1-UI/build/outputs/apk/debug/Lab1-UI-debug.apk
+  build:
 
- release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew assembleDebug
+    - name: Upload APK
+      uses: actions/upload-artifact@v3.1.2
+      with:
+       name: apk
+       path: Lab1-UI/build/outputs/apk/debug/Lab1-UI-debug.apk
+
+  release:
    name: Release APK
-   needs: apk
+   needs: build
    runs-on: ubuntu-latest
    steps:
      - name: Download APK from build

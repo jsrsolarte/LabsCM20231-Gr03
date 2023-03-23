@@ -19,4 +19,11 @@
     <string name="female">Mujer</string>
     <string name="btn_next">Siguiente</string>
 
+    <string name="phone">Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="email">Correo</string>
+    <string name="country">País</string>
+    <string name="city">Ciudad</string>
+    <string name="Next">Siguiente</string>
+    <string name="state">Estado/Departamento</string>
 </resources>
