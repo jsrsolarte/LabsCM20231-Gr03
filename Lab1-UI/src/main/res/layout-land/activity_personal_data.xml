@@ -14,81 +14,78 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <TextView
                 android:id="@+id/lbl_personal_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="20dp"
+                android:layout_margin="20dp"
                 android:fontFamily="casual"
                 android:hint="@string/personal_information"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@+id/text_lbl_name"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_lbl_name"
-                android:layout_width="300dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="20dp"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lbl_personal_information">
+                app:layout_constraintTop_toBottomOf="@id/lbl_personal_information">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lbl_name"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_lbl_name"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_action_name"
-                    android:drawablePadding="@dimen/fab_margin"
-                    android:fontFamily="casual"
-                    android:hint="@string/name"
-                    android:imeOptions="actionNext"
-                    android:inputType="textCapWords" />
+                    app:layout_constraintEnd_toStartOf="@id/text_lbl_lastname"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/lbl_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_action_name"
+                        android:drawablePadding="@dimen/fab_margin"
+                        android:fontFamily="casual"
+                        android:hint="@string/name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_lbl_lastname"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_lbl_name">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lbl_lastname"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_lbl_lastname"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_action_lastname1"
-                    android:drawablePadding="@dimen/fab_margin"
-                    android:fontFamily="casual"
-                    android:hint="@string/lastname"
-                    android:imeOptions="actionNext"
-                    android:inputType="textCapWords" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text_lbl_name"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/lbl_lastname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_action_lastname1"
+                        android:drawablePadding="@dimen/fab_margin"
+                        android:fontFamily="casual"
+                        android:hint="@string/lastname"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_genre"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_margin="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_lbl_lastname">
+                app:layout_constraintTop_toBottomOf="@+id/layout_name">
 
                 <TextView
                     android:id="@+id/lbl_genre"
@@ -101,10 +98,12 @@
                     android:visibility="visible"
                     app:drawableStartCompat="@drawable/ic_action_genre"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/radio_button"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <RadioGroup
+                    android:id="@+id/radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -133,11 +132,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_birthday"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_margin="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -154,6 +151,7 @@
                     android:fontFamily="casual"
                     android:hint="@string/birthday"
                     android:inputType="text"
+                    app:layout_constraintEnd_toStartOf="@id/button_date_picker"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <Button
@@ -171,11 +169,8 @@
                 android:id="@+id/layout_education"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_margin="20dp"
                 android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_birthday">
 
@@ -207,6 +202,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_education" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

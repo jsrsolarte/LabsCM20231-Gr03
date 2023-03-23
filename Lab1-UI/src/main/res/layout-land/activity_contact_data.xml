@@ -9,14 +9,176 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="225dp">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lbl_contact_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="casual"
+                android:hint="@string/contact_information"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_address_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@id/lbl_contact_information">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_Input_layout_phone"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/text_Input_Layout_mail">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/lbl_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_lbl_phone"
+                        android:drawablePadding="@dimen/fab_margin"
+                        android:fontFamily="casual"
+                        android:hint="@string/phone"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_Input_Layout_mail"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text_Input_layout_phone"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/lbl_mail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_lbl_mail"
+                        android:drawablePadding="@dimen/fab_margin"
+                        android:fontFamily="casual"
+                        android:hint="@string/email"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_Input_Layout_address"
+                android:layout_width="500dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_address_email">
+
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lbl_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_lbl_address"
+                    android:drawablePadding="@dimen/fab_margin"
+                    android:fontFamily="casual"
+                    android:hint="@string/address"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPostalAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/text_Input_Layout_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_layout_country"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/text_input_layout_state"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autocomplete_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:drawableStart="@drawable/ic_lbl_country"
+                        android:drawablePadding="@dimen/fab_margin"
+                        android:enabled="false"
+                        android:fontFamily="casual"
+                        android:hint="@string/country"
+                        android:imeOptions="actionNext"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_layout_state"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/text_input_layout_city"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/text_input_layout_country">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autocomplete_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:drawableStart="@drawable/ic_lbl_country"
+                        android:drawablePadding="@dimen/fab_margin"
+                        android:enabled="false"
+                        android:fontFamily="casual"
+                        android:hint="@string/state"
+                        android:imeOptions="actionNext"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_layout_city"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text_input_layout_state"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autocomplete_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:drawableStart="@drawable/ic_lbl_country"
+                        android:drawablePadding="@dimen/fab_margin"
+                        android:enabled="false"
+                        android:fontFamily="casual"
+                        android:hint="@string/city"
+                        android:imeOptions="actionNext"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <Button
                 android:id="@+id/btn_next_2"
@@ -24,134 +186,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="60dp"
+                android:fontFamily="casual"
                 android:text="@string/Next"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_input_layout_city" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_Input_layout_phone"
-                android:layout_width="300dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
-                app:layout_constraintEnd_toStartOf="@id/text_input_layout_country"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lbl_phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:drawableStart="@drawable/ic_lbl_phone"
-                    android:hint="@string/phone"
-                    android:imeOptions="actionNext"
-                    android:inputType="phone" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_Input_Layout_address"
-                android:layout_width="300dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toStartOf="@id/text_input_layout_state"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_Input_layout_phone">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lbl_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:drawableStart="@drawable/ic_lbl_address"
-                    android:hint="@string/address"
-                    android:imeOptions="actionNext"
-                    android:inputType="textPostalAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_input_layout_mail"
-                android:layout_width="300dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toStartOf="@id/text_input_layout_city"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_Input_Layout_address">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lbl_mail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:drawableStart="@drawable/ic_lbl_mail"
-                    android:hint="@string/email"
-                    android:imeOptions="actionNext"
-                    android:inputType="textEmailAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_input_layout_country"
-                android:layout_width="300dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/text_Input_layout_phone"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <AutoCompleteTextView
-                    android:id="@+id/autocomplete_country"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"    
-                    android:drawableStart="@drawable/ic_lbl_country"
-                    android:enabled="false"
-                    android:hint="@string/country"
-                    android:imeOptions="actionNext"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_input_layout_state"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/text_Input_Layout_address"
-                app:layout_constraintTop_toBottomOf="@+id/text_input_layout_country">
-
-                <AutoCompleteTextView
-                    android:id="@+id/autocomplete_state"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:drawableStart="@drawable/ic_lbl_country"
-                    android:enabled="false"
-                    android:hint="@string/state"
-                    android:imeOptions="actionNext"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_input_layout_city"
-                android:layout_width="300dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/text_input_layout_mail"
-                app:layout_constraintTop_toBottomOf="@+id/text_input_layout_state">
-
-                <AutoCompleteTextView
-                    android:id="@+id/autocomplete_city"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:drawableStart="@drawable/ic_lbl_country"
-                    android:enabled="false"
-                    android:hint="@string/city"
-                    android:imeOptions="actionNext"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintTop_toBottomOf="@+id/layout_location" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
