@@ -4,14 +4,13 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.security.identity.PersonalizationData
 import android.view.View
 import android.widget.*
 import android.widget.DatePicker
 import androidx.core.content.ContextCompat
-import co.edu.udea.compumovil.activities.Models.TestModel
 import co.edu.udea.compumovil.gr03_20231.lab1.R
 import co.edu.udea.compumovil.gr03_20231.lab1.databinding.ActivityPersonalDataBinding
+import co.edu.udea.compumovil.gr03_20231.lab1.domain.PersonalData
 import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
@@ -44,22 +43,35 @@ class PersonalDataActivity : AppCompatActivity() {
         val nextButton = findViewById<Button>(R.id.button_next)
         nextButton.setOnClickListener {
 
-            val intent = Intent(this, ContactDataActivity::class.java)
 
             var name: String = bindingPersonal.lblName.text.toString()
             var lastName: String = bindingPersonal.lblLastname.text.toString()
-            var sex: String = if (bindingPersonal.rdFemale.isChecked){
+            var sex: String = if (bindingPersonal.rdFemale.isChecked) {
                 "Femenino"
-            } else{
+            } else {
                 "Masculino"
             }
             var birthday: String = bindingPersonal.labelbirthday.text.toString()
             var educationLvl: String = bindingPersonal.spinner.selectedItem.toString()
-            var gson = Gson()
-            var jsonString = gson.toJson(TestModel(name,lastName, sex, birthday, educationLvl, "", "", "", "", "", ""))
-            intent.putExtra("mykey", jsonString)
-            startActivity(intent)
+            var model = PersonalData(name, lastName, sex, birthday, educationLvl)
+
+
+            if (validateFields(model)) {
+                var gson = Gson()
+                var jsonString = gson.toJson(model)
+                val intent = Intent(this, ContactDataActivity::class.java)
+                intent.putExtra("mykey", jsonString)
+                startActivity(intent)
+            }
         }
+    }
+
+    private fun validateFields(model: PersonalData): Boolean {
+        if (model.name == "" || model.lastName == "") {
+            Toast.makeText(this, "Verifique los campos obligatorios", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
     }
 
     private fun setSpinnerEducational() {

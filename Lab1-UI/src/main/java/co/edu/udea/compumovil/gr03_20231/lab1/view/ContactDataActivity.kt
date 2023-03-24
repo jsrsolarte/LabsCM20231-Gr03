@@ -1,17 +1,22 @@
 package co.edu.udea.compumovil.gr03_20231.lab1.view
 
+import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.Data
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import co.edu.udea.compumovil.activities.Models.TestModel
 import co.edu.udea.compumovil.gr03_20231.lab1.R
 import co.edu.udea.compumovil.gr03_20231.lab1.data.service.LocationService
 import co.edu.udea.compumovil.gr03_20231.lab1.databinding.ActivityContactDataBinding
+import co.edu.udea.compumovil.gr03_20231.lab1.domain.ContactData
+import co.edu.udea.compumovil.gr03_20231.lab1.domain.DataBind
+import co.edu.udea.compumovil.gr03_20231.lab1.domain.PersonalData
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
 
@@ -27,8 +32,23 @@ class ContactDataActivity : AppCompatActivity() {
         bindingContact = ActivityContactDataBinding.inflate(layoutInflater)
         setContentView(bindingContact.root)
         val nextButton = findViewById<Button>(R.id.btn_next_2)
-        nextButton.setOnClickListener{
-            printInformation()
+        nextButton.setOnClickListener {
+            val model = ContactData(
+                bindingContact.lblPhone.text.toString(),
+                bindingContact.lblAddress.text.toString(),
+                bindingContact.lblMail.text.toString(),
+                bindingContact.autocompleteCountry.text.toString(),
+                bindingContact.autocompleteState.text.toString(),
+                bindingContact.autocompleteCity.text.toString()
+            )
+            if (validateFields(model)) {
+                val bundle = intent.extras;
+                val dato = bundle?.getString("mykey")
+                val gson = Gson()
+                var personalModel = gson.fromJson(dato, PersonalData::class.java)
+                val data = DataBind(personalModel, model)
+                printInformation(data)
+            }
         }
 
         locationService = LocationService()
@@ -42,20 +62,21 @@ class ContactDataActivity : AppCompatActivity() {
         }
     }
 
-    private fun printInformation() {
-        val bundle = intent.extras;
-        val dato = bundle?.getString("mykey")
-        val gson = Gson()
-        if (dato != null) {
-            var testModel = gson.fromJson(dato, TestModel::class.java)
-            testModel.phone = bindingContact.lblPhone.text.toString()
-            testModel.address = bindingContact.lblAddress.text.toString()
-            testModel.email = bindingContact.lblMail.text.toString()
-            testModel.country = bindingContact.autocompleteCountry.text.toString()
-            testModel.state = bindingContact.autocompleteState.text.toString()
-            testModel.city = bindingContact.autocompleteCity.text.toString()
-            Log.d(TAG, testModel.toString())
+    private fun validateFields(model: ContactData): Boolean {
+        if (model.phone == "" || model.email == "" || model.country == "") {
+            Toast.makeText(this, "Verifique los campos obligatorios", Toast.LENGTH_SHORT).show()
+            return false
         }
+        return true
+    }
+
+    private fun printInformation(data: DataBind) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage(data.toString())
+
+        val dialog = builder.create()
+        dialog.show()
+        Log.d(TAG, data.toString())
     }
 
     private suspend fun fillCountryField() {

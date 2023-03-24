@@ -20,7 +20,6 @@
         <activity
             android:name=".view.PersonalDataActivity"
             android:exported="true"
-            android:label="@string/title_activity_personal_data"
             android:theme="@style/Theme.Labs20231Gr03.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
