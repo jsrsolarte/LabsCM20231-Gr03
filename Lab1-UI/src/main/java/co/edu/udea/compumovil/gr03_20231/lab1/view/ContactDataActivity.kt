@@ -1,12 +1,18 @@
 package co.edu.udea.compumovil.gr03_20231.lab1.view
 
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
 import androidx.lifecycle.lifecycleScope
+import co.edu.udea.compumovil.activities.Models.TestModel
 import co.edu.udea.compumovil.gr03_20231.lab1.R
 import co.edu.udea.compumovil.gr03_20231.lab1.data.service.LocationService
+import co.edu.udea.compumovil.gr03_20231.lab1.databinding.ActivityContactDataBinding
+import com.google.gson.Gson
 import kotlinx.coroutines.launch
 
 class ContactDataActivity : AppCompatActivity() {
@@ -15,16 +21,40 @@ class ContactDataActivity : AppCompatActivity() {
     private lateinit var countryAutoComplete: AutoCompleteTextView
     private lateinit var stateAutoComplete: AutoCompleteTextView
     private lateinit var cityAutoComplete: AutoCompleteTextView
+    private lateinit var bindingContact: ActivityContactDataBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contact_data)
+        bindingContact = ActivityContactDataBinding.inflate(layoutInflater)
+        setContentView(bindingContact.root)
+        val nextButton = findViewById<Button>(R.id.btn_next_2)
+        nextButton.setOnClickListener{
+            printInformation()
+        }
+
         locationService = LocationService()
         countryAutoComplete = findViewById(R.id.autocomplete_country)
         stateAutoComplete = findViewById(R.id.autocomplete_state)
         cityAutoComplete = findViewById(R.id.autocomplete_city)
 
+
         lifecycleScope.launch {
             fillCountryField()
+        }
+    }
+
+    private fun printInformation() {
+        val bundle = intent.extras;
+        val dato = bundle?.getString("mykey")
+        val gson = Gson()
+        if (dato != null) {
+            var testModel = gson.fromJson(dato, TestModel::class.java)
+            testModel.phone = bindingContact.lblPhone.text.toString()
+            testModel.address = bindingContact.lblAddress.text.toString()
+            testModel.email = bindingContact.lblMail.text.toString()
+            testModel.country = bindingContact.autocompleteCountry.text.toString()
+            testModel.state = bindingContact.autocompleteState.text.toString()
+            testModel.city = bindingContact.autocompleteCity.text.toString()
+            Log.d(TAG, testModel.toString())
         }
     }
 
